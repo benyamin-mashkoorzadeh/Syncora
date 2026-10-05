@@ -1,0 +1,250 @@
+.headingRow,
+.sectionHeading,
+.projectHero,
+.projectIdentity,
+.sprintTopline,
+.labelRow,
+.pagination,
+.errorActions {
+  display: flex;
+  align-items: center;
+}
+
+.heroActions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.65rem; }
+
+.headingRow,
+.sectionHeading,
+.projectHero,
+.sprintTopline,
+.pagination { justify-content: space-between; }
+
+.eyebrow,
+.kicker {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.pageTitle {
+  margin-top: 0.55rem;
+  font-size: clamp(2.25rem, 5vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.pageDescription,
+.heroDescription {
+  max-width: 42rem;
+  margin-top: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.accessBadge,
+.count,
+.statusBadge {
+  flex: 0 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.accessBadge { padding: 0.48rem 0.7rem; color: var(--color-text-muted); background: var(--color-surface); }
+.count { min-width: 2rem; padding: 0.4rem 0.55rem; text-align: center; color: var(--color-primary-hover); background: var(--color-primary-soft); }
+
+.indexLayout,
+.sprintLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(18rem, 0.72fr);
+  align-items: start;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin-top: 3rem;
+}
+
+.singleColumn { margin-top: 3rem; }
+
+.sectionHeading { gap: 1rem; margin-bottom: 1rem; }
+.sectionHeading h2,
+.formCard h2,
+.editCard h2,
+.errorState h2 { margin-top: 0.35rem; font-size: 1.22rem; letter-spacing: -0.035em; }
+
+.projectGrid { display: grid; gap: 0.8rem; }
+.projectCard {
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  padding: 1.15rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.projectCard:hover { border-color: color-mix(in srgb, var(--color-primary) 50%, var(--color-border)); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.projectCard:focus-visible,
+.backLink:focus-visible,
+.textButton:focus-visible,
+.pagination button:focus-visible { outline: 3px solid color-mix(in srgb, var(--color-focus) 38%, transparent); outline-offset: 3px; }
+.projectCard h3 { letter-spacing: -0.025em; }
+.projectCard p { display: -webkit-box; overflow: hidden; margin-top: 0.35rem; color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.projectMark,
+.largeProjectMark {
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 24%, var(--color-border));
+  border-radius: 0.86rem;
+  color: var(--color-primary-hover);
+  background: var(--color-primary-soft);
+  font-weight: 850;
+}
+.projectMark { width: 2.8rem; height: 2.8rem; }
+.largeProjectMark { width: 3.5rem; height: 3.5rem; border-radius: 1rem; font-size: 1.15rem; }
+.cardArrow { color: var(--color-primary); font-size: 1.1rem; }
+
+.formCard,
+.editCard,
+.projectHero,
+.sprintCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+.formCard { position: sticky; top: 1.5rem; padding: clamp(1.25rem, 3vw, 1.75rem); }
+.formCard > p:not(.kicker),
+.editCard > div > p:not(.kicker) { margin-top: 0.55rem; color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.55; }
+.form { display: grid; gap: 1rem; margin-top: 1.4rem; }
+.field { display: grid; gap: 0.42rem; min-width: 0; }
+.labelRow { justify-content: space-between; gap: 1rem; }
+.labelRow label { font-size: 0.76rem; font-weight: 800; }
+.labelRow span { color: var(--color-text-muted); font-size: 0.66rem; }
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.72rem 0.82rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.72rem;
+  outline: none;
+  color: var(--color-text);
+  background: var(--color-surface-elevated);
+  font: inherit;
+  font-size: 0.82rem;
+}
+.field input,
+.field select { min-height: 2.85rem; }
+.field textarea { resize: vertical; line-height: 1.5; }
+.field input:focus,
+.field textarea:focus,
+.field select:focus { border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-focus) 16%, transparent); }
+.fieldError,
+.formError { color: var(--color-danger); font-size: 0.73rem; line-height: 1.45; }
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 2.65rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.66rem 0.9rem;
+  border-radius: 0.72rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.primaryButton { border: 1px solid var(--color-primary); color: var(--color-primary-foreground); background: var(--color-primary); }
+.primaryButton:hover:not(:disabled) { background: var(--color-primary-hover); }
+.secondaryButton { border: 1px solid var(--color-border-strong); color: var(--color-text); background: var(--color-surface); }
+.secondaryButton:hover { border-color: var(--color-primary); }
+.primaryButton:disabled { cursor: wait; opacity: 0.6; }
+
+.emptyState,
+.loadingState,
+.errorState {
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-muted);
+  background: color-mix(in srgb, var(--color-surface) 75%, transparent);
+}
+.emptyState { display: grid; min-height: 18rem; place-items: center; align-content: center; padding: 2rem; text-align: center; }
+.emptyState h3 { margin-top: 0.75rem; color: var(--color-text); font-size: 1.08rem; }
+.emptyState p { max-width: 30rem; margin-top: 0.45rem; font-size: 0.82rem; line-height: 1.6; }
+.emptyMark { display: grid; width: 2.8rem; height: 2.8rem; place-items: center; border-radius: 50%; color: var(--color-primary); background: var(--color-primary-soft); font-size: 1.25rem; }
+.loadingState { display: flex; min-height: 12rem; align-items: center; justify-content: center; gap: 0.7rem; padding: 2rem; font-size: 0.82rem; }
+.spinner { width: 1rem; height: 1rem; border: 2px solid var(--color-border-strong); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 700ms linear infinite; }
+.errorState { display: flex; gap: 1rem; padding: 1.5rem; }
+.errorState > span { display: grid; width: 2rem; height: 2rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-danger); background: color-mix(in srgb, var(--color-danger) 12%, transparent); font-weight: 900; }
+.errorState p { margin-top: 0.4rem; font-size: 0.82rem; line-height: 1.55; }
+.errorActions { gap: 0.6rem; margin-top: 1rem; }
+.compactState { min-height: 11rem; }
+
+.pagination { gap: 1rem; margin-top: 1rem; color: var(--color-text-muted); font-size: 0.72rem; }
+.pagination button { padding: 0.55rem 0; border: 0; cursor: pointer; color: var(--color-primary-hover); background: none; font: inherit; font-weight: 800; }
+.pagination button:disabled { cursor: default; color: var(--color-text-muted); opacity: 0.45; }
+
+.backLink { display: inline-flex; margin-bottom: 1.1rem; color: var(--color-text-muted); font-size: 0.78rem; font-weight: 800; }
+.backLink:hover { color: var(--color-primary-hover); }
+.projectHero { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem 1.5rem; padding: clamp(1.4rem, 4vw, 2.35rem); background: linear-gradient(140deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 55%, var(--color-surface))); }
+.projectIdentity { min-width: 0; gap: 1rem; }
+.projectIdentity .pageTitle { overflow-wrap: anywhere; }
+.heroDescription { grid-column: 1 / -1; margin-top: 0; }
+.successMessage { grid-column: 1 / -1; color: var(--color-success); font-size: 0.78rem; }
+.editCard { display: grid; grid-template-columns: minmax(13rem, 0.7fr) minmax(0, 1fr); gap: 2rem; margin-top: 1rem; padding: clamp(1.25rem, 3vw, 2rem); }
+.editCard .form { margin-top: 0; }
+
+.sprintLayout { margin-top: 2rem; }
+.sprintList { display: grid; gap: 0.8rem; }
+.sprintCard { padding: 1.2rem; }
+.sprintCard h3 { margin-top: 0.9rem; font-size: 1.05rem; letter-spacing: -0.025em; }
+.statusBadge { padding: 0.34rem 0.58rem; }
+.statusPlanned { color: var(--color-info); background: color-mix(in srgb, var(--color-info) 10%, transparent); }
+.statusActive { color: var(--color-success); background: color-mix(in srgb, var(--color-success) 11%, transparent); }
+.statusCompleted { color: var(--color-text-muted); background: var(--color-surface-subtle); }
+.textButton { padding: 0.3rem; border: 0; cursor: pointer; color: var(--color-primary-hover); background: none; font: inherit; font-size: 0.72rem; font-weight: 800; }
+.sprintDates { margin-top: 0.4rem; color: var(--color-text-muted); font-size: 0.72rem; font-weight: 750; }
+.sprintDates span { margin-inline: 0.3rem; color: var(--color-primary); }
+.sprintGoal { margin-top: 0.8rem; color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.55; }
+.lockedNote { margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--color-border); color: var(--color-text-muted); font-size: 0.7rem; }
+.inlineForm { margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--color-border); }
+.dateGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 900px) {
+  .indexLayout,
+  .sprintLayout { grid-template-columns: 1fr; }
+  .formCard { position: static; }
+}
+
+@media (max-width: 640px) {
+  .headingRow { align-items: flex-start; }
+  .headingRow .accessBadge { margin-top: 0.1rem; }
+  .pageTitle { font-size: 2.25rem; }
+  .indexLayout,
+  .singleColumn { margin-top: 2rem; }
+  .projectCard { grid-template-columns: 2.5rem minmax(0, 1fr) auto; gap: 0.75rem; padding: 1rem; }
+  .projectMark { width: 2.5rem; height: 2.5rem; }
+  .projectHero { grid-template-columns: 1fr; }
+  .projectHero .secondaryButton,
+  .projectHero .accessBadge,
+  .heroActions { justify-self: start; }
+  .projectIdentity { align-items: flex-start; }
+  .heroDescription,
+  .successMessage { grid-column: 1; }
+  .editCard { grid-template-columns: 1fr; gap: 1rem; }
+  .dateGrid { grid-template-columns: 1fr; }
+  .pagination { align-items: flex-end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projectCard { transition: none; }
+  .spinner { animation-duration: 1400ms; }
+}

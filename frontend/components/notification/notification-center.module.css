@@ -1,0 +1,77 @@
+.notificationCenter { position: relative; }
+.bellButton {
+  position: relative;
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  place-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  color: var(--color-primary-hover);
+  background: color-mix(in srgb, var(--color-primary-soft) 42%, var(--color-surface));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-primary) 5%, transparent);
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+}
+.bellButton:hover { border-color: var(--color-primary); background: var(--color-primary-soft); transform: translateY(-1px); }
+.bellButton svg { width: 1.2rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+.unreadBadge { position: absolute; top: -0.34rem; right: -0.36rem; display: grid; min-width: 1.3rem; height: 1.3rem; place-items: center; padding-inline: 0.26rem; border: 2px solid var(--color-app-background); border-radius: 999px; color: var(--color-danger-foreground); background: var(--color-danger); box-shadow: 0 2px 8px color-mix(in srgb, var(--color-danger) 28%, transparent); font-size: 0.58rem; font-weight: 900; line-height: 1; }
+
+.panel {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 0.65rem);
+  right: 0;
+  width: min(23rem, calc(100vw - 2rem));
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+}
+.panelHeader { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.95rem 1rem; border-bottom: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-surface-elevated) 88%, transparent); }
+.panelHeader h2 { font-size: 0.95rem; letter-spacing: -0.025em; }
+.panelHeader > button { padding: 0.3rem; border: 0; cursor: pointer; color: var(--color-primary-hover); background: none; font: inherit; font-size: 0.66rem; font-weight: 850; }
+.panelHeader > button:disabled { cursor: default; color: var(--color-text-muted); opacity: 0.55; }
+.connection { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 0.25rem; color: var(--color-text-muted); font-size: 0.56rem; font-weight: 850; text-transform: uppercase; }
+.connection > span { width: 0.36rem; height: 0.36rem; border-radius: 50%; background: currentColor; }
+.connectionLive { color: var(--color-presence-online); }
+.connectionConnecting { color: var(--color-warning); }
+.connectionOffline { color: var(--color-text-muted); }
+
+.panelBody { max-height: min(34rem, calc(100dvh - 7rem)); overflow-y: auto; overscroll-behavior: contain; }
+.notificationList { display: grid; }
+.notification { position: relative; border-bottom: 1px solid var(--color-border); }
+.notification.unread { background: color-mix(in srgb, var(--color-primary-soft) 34%, var(--color-surface)); }
+.notificationLink { display: grid; width: 100%; grid-template-columns: 2rem minmax(0, 1fr) auto; align-items: start; gap: 0.7rem; padding: 0.9rem 1rem 1.65rem; border: 0; cursor: pointer; color: var(--color-text); background: transparent; text-align: left; font: inherit; }
+.notificationLink:hover:not(:disabled) { background: color-mix(in srgb, var(--color-surface-subtle) 68%, transparent); }
+.notificationLink:disabled { cursor: wait; opacity: 0.65; }
+.actorAvatar { width: 2rem; height: 2rem; font-size: 0.66rem; }
+.notificationContent { display: block; min-width: 0; }
+.notificationContent > span:first-child { display: block; overflow-wrap: anywhere; font-size: 0.74rem; line-height: 1.45; }
+.notificationContent strong { font-weight: 800; }
+.notificationContent b { font-weight: 700; }
+.projectName { display: block; margin-top: 0.25rem; overflow: hidden; color: var(--color-text-muted); text-overflow: ellipsis; white-space: nowrap; font-size: 0.66rem; }
+.notificationContent time { display: block; margin-top: 0.28rem; color: var(--color-text-muted); font-size: 0.6rem; }
+.unreadDot { width: 0.48rem; height: 0.48rem; margin-top: 0.28rem; border-radius: 50%; background: var(--color-primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 14%, transparent); }
+.markReadButton { position: absolute; bottom: 0.42rem; left: 3.7rem; padding: 0.2rem 0; border: 0; cursor: pointer; color: var(--color-primary-hover); background: none; font: inherit; font-size: 0.6rem; font-weight: 800; }
+.markReadButton:disabled { cursor: wait; opacity: 0.55; }
+.loadMore { min-height: 2.8rem; border: 0; cursor: pointer; color: var(--color-primary-hover); background: var(--color-surface); font: inherit; font-size: 0.68rem; font-weight: 850; }
+.loadMore:hover:not(:disabled) { background: var(--color-surface-subtle); }
+.loadMore:disabled { cursor: wait; opacity: 0.6; }
+
+.panelState { display: flex; min-height: 10rem; align-items: center; justify-content: center; gap: 0.7rem; padding: 1.25rem; color: var(--color-text-muted); }
+.panelState > span { display: grid; width: 2rem; height: 2rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-primary-hover); background: var(--color-primary-soft); font-size: 0.72rem; font-weight: 900; }
+.panelState h3 { color: var(--color-text); font-size: 0.88rem; }
+.panelState p { margin-top: 0.25rem; font-size: 0.7rem; line-height: 1.45; }
+.panelState button { margin-top: 0.55rem; padding: 0; border: 0; cursor: pointer; color: var(--color-primary-hover); background: none; font: inherit; font-size: 0.68rem; font-weight: 850; }
+.errorState > span, .errorState p { color: var(--color-danger); }
+
+@media (max-width: 520px) {
+  .panel { position: fixed; top: 4.3rem; right: 1rem; left: 1rem; width: auto; }
+  .panelBody { max-height: calc(100dvh - 5.5rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bellButton { transition: none; }
+}

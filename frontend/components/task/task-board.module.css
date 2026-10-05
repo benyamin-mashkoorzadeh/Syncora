@@ -1,0 +1,195 @@
+.backLink { display: inline-flex; margin-bottom: 1.1rem; color: var(--color-text-muted); font-size: 0.78rem; font-weight: 800; }
+.backLink:hover { color: var(--color-primary-hover); }
+
+.boardHeader {
+  display: grid;
+  gap: 1.35rem;
+  padding: clamp(1.4rem, 4vw, 2.25rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(140deg, var(--color-surface), color-mix(in srgb, var(--color-primary-soft) 48%, var(--color-surface)));
+  box-shadow: var(--shadow-sm);
+}
+.boardIdentity { min-width: 0; }
+.eyebrow { color: var(--color-primary); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+.boardHeader h1 { margin-top: 0.5rem; font-size: clamp(2.15rem, 5vw, 3.5rem); line-height: 1; letter-spacing: -0.06em; overflow-wrap: break-word; }
+.boardIdentity > p:last-child { max-width: 38rem; margin-top: 0.75rem; color: var(--color-text-muted); line-height: 1.6; }
+.headerActions { display: flex; min-width: 0; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 0.7rem; }
+.collaboration { display: flex; max-width: 100%; min-width: 0; align-items: center; gap: 0.7rem; padding: 0.45rem 0.58rem; border: 1px solid var(--color-border); border-radius: 0.8rem; background: color-mix(in srgb, var(--color-surface) 82%, transparent); }
+.connectionStatus { display: inline-flex; align-items: center; gap: 0.35rem; color: var(--color-text-muted); font-size: 0.62rem; font-weight: 850; text-transform: uppercase; }
+.connectionStatus > span { width: 0.42rem; height: 0.42rem; border-radius: 50%; background: currentColor; }
+.connectionLive { color: var(--color-presence-online); }
+.connectionConnecting { color: var(--color-warning); }
+.connectionOffline { color: var(--color-text-muted); }
+.onlineMembers { display: flex; min-width: 0; align-items: center; gap: 0.55rem; }
+.onlineMembers > strong { overflow: hidden; color: var(--color-text-muted); text-overflow: ellipsis; white-space: nowrap; font-size: 0.62rem; }
+.onlineList { display: flex; min-width: 0; flex: 0 1 auto; align-items: center; padding-left: 0.25rem; }
+.onlineAvatar { width: 1.45rem; height: 1.45rem; flex-basis: 1.45rem; margin-left: -0.25rem; border: 2px solid var(--color-surface); font-size: 0.5rem; }
+.onlineMore { display: grid; width: 1.45rem; height: 1.45rem; flex: 0 0 1.45rem; place-items: center; margin-left: -0.2rem; border: 2px solid var(--color-surface); border-radius: 50%; color: var(--color-primary-hover); background: var(--color-primary-soft); font-size: 0.52rem; font-weight: 850; }
+.contextBadge,
+.accessBadge { padding: 0.47rem 0.7rem; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-text-muted); background: var(--color-surface); font-size: 0.69rem; font-weight: 800; }
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 2.65rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.72rem;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.primaryButton { border: 1px solid var(--color-primary); color: var(--color-primary-foreground); background: var(--color-primary); }
+.primaryButton:hover:not(:disabled) { background: var(--color-primary-hover); }
+.secondaryButton { border: 1px solid var(--color-border-strong); color: var(--color-text); background: var(--color-surface); }
+.secondaryButton:hover:not(:disabled) { border-color: var(--color-primary); }
+.primaryButton:disabled,
+.secondaryButton:disabled { cursor: wait; opacity: 0.6; }
+
+.taskFormPanel {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.62fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+  margin-top: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+.formIntro h2 { margin-top: 0.4rem; font-size: 1.3rem; letter-spacing: -0.035em; }
+.formIntro > p:last-child { margin-top: 0.55rem; color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.55; }
+.form { display: grid; gap: 1rem; }
+.formGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+.field { display: grid; gap: 0.42rem; min-width: 0; }
+.labelRow { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.labelRow label { font-size: 0.76rem; font-weight: 800; }
+.labelRow span,
+.fieldHint { color: var(--color-text-muted); font-size: 0.68rem; }
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.72rem 0.82rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 0.72rem;
+  outline: none;
+  color: var(--color-text);
+  background: var(--color-surface-elevated);
+  font: inherit;
+  font-size: 0.82rem;
+}
+.field input,
+.field select { min-height: 2.85rem; }
+.field textarea { resize: vertical; line-height: 1.5; }
+.field input:focus,
+.field textarea:focus,
+.field select:focus { border-color: var(--color-focus); box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-focus) 16%, transparent); }
+.fieldError,
+.formError { color: var(--color-danger); font-size: 0.73rem; line-height: 1.45; }
+.formActions { display: flex; justify-content: flex-end; gap: 0.65rem; }
+
+.errorNotice,
+.refreshing,
+.emptyBoard { margin-top: 1rem; border-radius: var(--radius-md); }
+.errorNotice { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 1rem; border: 1px solid color-mix(in srgb, var(--color-danger) 35%, var(--color-border)); color: var(--color-danger); background: color-mix(in srgb, var(--color-danger) 8%, var(--color-surface)); font-size: 0.78rem; }
+.errorNotice button { border: 0; cursor: pointer; color: inherit; background: none; font: inherit; font-weight: 800; }
+.refreshing { padding: 0.65rem 0.8rem; color: var(--color-primary-hover); background: var(--color-primary-soft); font-size: 0.73rem; font-weight: 750; }
+.emptyBoard { display: flex; align-items: center; gap: 1rem; padding: 1.1rem; border: 1px dashed var(--color-border-strong); color: var(--color-text-muted); background: color-mix(in srgb, var(--color-surface) 78%, transparent); }
+.emptyBoard > span { display: grid; width: 2.5rem; height: 2.5rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-primary); background: var(--color-primary-soft); }
+.emptyBoard h2 { color: var(--color-text); font-size: 0.92rem; }
+.emptyBoard p { margin-top: 0.2rem; font-size: 0.75rem; }
+
+.board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 1rem; margin-top: 1.25rem; }
+.column { min-width: 0; padding: 0.35rem; border: 1px solid transparent; border-radius: var(--radius-lg); background: transparent; transition: border-color 150ms ease, background 150ms ease, box-shadow 150ms ease; }
+.columnTarget { border-color: color-mix(in srgb, var(--column-color) 42%, var(--color-border)); background: color-mix(in srgb, var(--column-color) 4%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--column-color) 10%, transparent); }
+.columnHeader { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.25rem 0.8rem; padding: 0.65rem 0.2rem 1rem; border-top: 2px solid color-mix(in srgb, var(--column-color) 52%, var(--color-border)); }
+.columnHeader > div { display: flex; min-width: 0; align-items: center; gap: 0.55rem; }
+.columnHeader h2 { font-size: 0.92rem; letter-spacing: -0.02em; }
+.columnHeader p { grid-column: 1 / -1; color: var(--color-text-muted); font-size: 0.68rem; }
+.statusDot { width: 0.55rem; height: 0.55rem; flex: 0 0 auto; border-radius: 50%; background: var(--column-color); }
+.columnCount { min-width: 1.6rem; padding: 0.25rem 0.42rem; border-radius: 999px; color: var(--column-color); background: color-mix(in srgb, var(--column-color) 11%, transparent); text-align: center; font-size: 0.66rem; font-weight: 850; }
+.todo { --column-color: var(--color-status-todo); }
+.in_progress { --column-color: var(--color-status-progress); }
+.done { --column-color: var(--color-status-done); }
+.taskList { display: grid; gap: 0.9rem; }
+.emptyColumn { display: grid; min-height: 7rem; place-items: center; padding: 1rem; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-md); color: var(--color-text-muted); text-align: center; font-size: 0.72rem; }
+.emptyColumnTarget { border-color: var(--column-color); color: var(--color-text); background: color-mix(in srgb, var(--column-color) 7%, transparent); }
+.sortableCard { position: relative; min-width: 0; }
+.sortableDragging { z-index: 2; opacity: 0.24; }
+.insertionTarget::before { position: absolute; z-index: 4; top: -0.52rem; right: 0.3rem; left: 0.3rem; height: 2px; border-radius: 999px; background: var(--column-color); box-shadow: 0 0 0 3px color-mix(in srgb, var(--column-color) 12%, transparent); content: ""; }
+.taskCard { min-width: 0; padding: 0.95rem; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); transition: border-color 150ms ease, transform 150ms ease, opacity 150ms ease; }
+.taskCard:hover { border-color: color-mix(in srgb, var(--column-color) 42%, var(--color-border)); transform: translateY(-1px); }
+.taskPending { opacity: 0.62; }
+.taskTopline { display: flex; align-items: center; justify-content: space-between; gap: 0.7rem; }
+.cardActions { display: flex; align-items: center; gap: 0.4rem; }
+.dragHandle { display: grid; width: 1.75rem; height: 1.75rem; touch-action: none; place-items: center; border: 1px solid transparent; border-radius: 0.5rem; cursor: grab; color: var(--color-text-muted); background: transparent; font: inherit; font-size: 1rem; line-height: 1; }
+.dragHandle:hover:not(:disabled) { border-color: var(--color-border); color: var(--color-primary-hover); background: var(--color-surface-subtle); }
+.dragHandle:active { cursor: grabbing; }
+.dragHandle:disabled,
+.editButton:disabled { cursor: wait; opacity: 0.45; }
+.priority { padding: 0.28rem 0.48rem; border-radius: 999px; font-size: 0.63rem; font-weight: 850; }
+.priorityLow { color: var(--color-priority-low); background: color-mix(in srgb, var(--color-priority-low) 11%, transparent); }
+.priorityMedium { color: var(--color-priority-medium); background: color-mix(in srgb, var(--color-priority-medium) 11%, transparent); }
+.priorityHigh { color: var(--color-priority-high); background: color-mix(in srgb, var(--color-priority-high) 11%, transparent); }
+.priorityUrgent { color: var(--color-priority-urgent); background: color-mix(in srgb, var(--color-priority-urgent) 12%, transparent); }
+.editButton { padding: 0.2rem; border: 0; cursor: pointer; color: var(--color-primary-hover); background: none; font: inherit; font-size: 0.68rem; font-weight: 800; }
+.taskCard h3 { margin-top: 0.72rem; font-size: 0.91rem; letter-spacing: -0.02em; overflow-wrap: anywhere; }
+.taskTitleLink:hover { color: var(--color-primary-hover); }
+.taskDescription { display: -webkit-box; overflow: hidden; margin-top: 0.4rem; color: var(--color-text-muted); font-size: 0.73rem; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.taskContext { display: grid; gap: 0.55rem; margin-top: 0.9rem; padding-top: 0.75rem; border-top: 1px solid var(--color-border); }
+.sprintLabel { overflow: hidden; color: var(--color-text-muted); font-size: 0.66rem; font-weight: 750; text-overflow: ellipsis; white-space: nowrap; }
+.assignee { display: flex; min-width: 0; align-items: center; gap: 0.45rem; color: var(--color-text-muted); font-size: 0.68rem; }
+.assignee > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.miniAvatar { width: 1.55rem; height: 1.55rem; flex-basis: 1.55rem; font-size: 0.58rem; }
+.unassigned { color: var(--color-text-muted); font-size: 0.66rem; font-style: italic; }
+.moveControls { display: grid; grid-template-columns: 2rem 2rem minmax(0, 1fr) 2rem 2rem; align-items: center; gap: 0.3rem; margin-top: 0.75rem; }
+.moveControls button { display: grid; width: 2rem; height: 2rem; place-items: center; border: 1px solid var(--color-border); border-radius: 0.55rem; cursor: pointer; color: var(--color-text); background: var(--color-surface-elevated); font: inherit; font-weight: 850; }
+.moveControls button:hover:not(:disabled) { border-color: var(--color-primary); color: var(--color-primary-hover); }
+.moveControls button:disabled { cursor: default; opacity: 0.35; }
+.moveControls span { color: var(--color-text-muted); text-align: center; font-size: 0.6rem; font-weight: 750; }
+.endDropZone { display: grid; height: 0; place-items: center; overflow: hidden; border: 0 solid transparent; border-radius: 0.7rem; color: var(--color-text-muted); opacity: 0; transition: height 150ms ease, margin 150ms ease, opacity 150ms ease, border-color 150ms ease, background 150ms ease; }
+.endDropZone span { font-size: 0.65rem; font-weight: 800; }
+.endDropZoneActive { height: 2.35rem; margin-top: 0.9rem; border-width: 1px; border-style: dashed; border-color: var(--color-border-strong); opacity: 1; }
+.endDropZoneTarget { border-color: var(--column-color); color: var(--color-text); background: color-mix(in srgb, var(--column-color) 8%, transparent); }
+.addToColumn { width: 100%; margin-top: 0.9rem; padding: 0.62rem; border: 1px dashed var(--color-border-strong); border-radius: 0.7rem; cursor: pointer; color: var(--color-text-muted); background: transparent; font: inherit; font-size: 0.68rem; font-weight: 800; }
+.addToColumn:hover { border-color: var(--column-color); color: var(--color-text); background: var(--color-surface); }
+.addToColumn:disabled { cursor: wait; opacity: 0.5; }
+.dragOverlay { width: min(20rem, calc(100vw - 2rem)); transform: rotate(1deg); }
+.taskOverlayCard { border-color: color-mix(in srgb, var(--color-primary) 48%, var(--color-border)); box-shadow: var(--shadow-md); }
+
+.statePanel { display: flex; min-height: 20rem; align-items: center; justify-content: center; gap: 0.7rem; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-lg); color: var(--color-text-muted); font-size: 0.82rem; }
+.spinner { width: 1rem; height: 1rem; border: 2px solid var(--color-border-strong); border-top-color: var(--color-primary); border-radius: 50%; animation: spin 700ms linear infinite; }
+.errorPanel { display: flex; gap: 1rem; padding: 1.5rem; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-lg); color: var(--color-text-muted); }
+.errorPanel > span { display: grid; width: 2rem; height: 2rem; flex: 0 0 auto; place-items: center; border-radius: 50%; color: var(--color-danger); background: color-mix(in srgb, var(--color-danger) 12%, transparent); font-weight: 900; }
+.errorPanel h1 { color: var(--color-text); font-size: 1.25rem; }
+.errorPanel p { margin-top: 0.4rem; font-size: 0.82rem; }
+.errorPanel div > div { display: flex; gap: 0.6rem; margin-top: 1rem; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 1050px) {
+  .board { grid-template-columns: 1fr; }
+  .taskList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .emptyColumn { grid-column: 1 / -1; }
+}
+
+@media (max-width: 700px) {
+  .headerActions { justify-content: flex-start; }
+  .collaboration { width: 100%; }
+  .taskFormPanel { grid-template-columns: 1fr; }
+  .formGrid,
+  .taskList { grid-template-columns: 1fr; }
+  .boardHeader h1 { font-size: 2.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taskCard,
+  .column,
+  .endDropZone { transition: none; }
+  .spinner { animation-duration: 1400ms; }
+}

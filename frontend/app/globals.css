@@ -1,0 +1,166 @@
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --color-app-background: #f4f7f5;
+  --color-navigation: #eef4f0;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+  --color-surface-subtle: #eaf1ed;
+  --color-text: #17211c;
+  --color-text-muted: #637169;
+  --color-border: #d9e4dd;
+  --color-border-strong: #c5d5cb;
+  --color-primary: #0f9660;
+  --color-primary-hover: #08774b;
+  --color-primary-foreground: #ffffff;
+  --color-primary-soft: #dcf7e9;
+  --color-secondary: #0f9f91;
+  --color-secondary-soft: #d9f5f1;
+  --color-success: #15805a;
+  --color-warning: #b76b0b;
+  --color-danger: #c64d5d;
+  --color-danger-foreground: #ffffff;
+  --color-info: #2383a1;
+  --color-focus: #078c65;
+  --color-presence-online: #18a66b;
+  --color-presence-away: #d88b1d;
+  --color-priority-low: #648378;
+  --color-priority-medium: #b76b0b;
+  --color-priority-high: #c64d5d;
+  --color-priority-urgent: #a93546;
+  --color-status-backlog: #718078;
+  --color-status-todo: #2383a1;
+  --color-status-progress: #0f9f91;
+  --color-status-done: #15805a;
+  --color-chart-1: #0f9660;
+  --color-chart-2: #0f9f91;
+  --color-chart-3: #67a58b;
+  --color-chart-4: #d6a04c;
+  --shadow-sm: 0 1px 2px rgba(18, 42, 30, 0.05);
+  --shadow-md: 0 16px 40px rgba(32, 70, 50, 0.1);
+  --shadow-lg: 0 30px 80px rgba(24, 61, 42, 0.15);
+  --radius-sm: 0.625rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --font-sans: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-app-background: #0d1511;
+  --color-navigation: #111c17;
+  --color-surface: #142019;
+  --color-surface-elevated: #1a2821;
+  --color-surface-subtle: #1c2b23;
+  --color-text: #edf6f1;
+  --color-text-muted: #9aaba1;
+  --color-border: #2a3a31;
+  --color-border-strong: #3a4d42;
+  --color-primary: #37d695;
+  --color-primary-hover: #6ee7b7;
+  --color-primary-foreground: #092016;
+  --color-primary-soft: #15392a;
+  --color-secondary: #35c8b8;
+  --color-secondary-soft: #153a36;
+  --color-success: #43d89d;
+  --color-warning: #f0b653;
+  --color-danger: #f07886;
+  --color-danger-foreground: #1b0b0e;
+  --color-info: #67c7e2;
+  --color-focus: #5ee4b0;
+  --color-presence-online: #43d89d;
+  --color-presence-away: #f0b653;
+  --color-priority-low: #94a89d;
+  --color-priority-medium: #f0b653;
+  --color-priority-high: #f07886;
+  --color-priority-urgent: #ff9aa7;
+  --color-status-backlog: #94a89d;
+  --color-status-todo: #67c7e2;
+  --color-status-progress: #35c8b8;
+  --color-status-done: #43d89d;
+  --color-chart-1: #37d695;
+  --color-chart-2: #35c8b8;
+  --color-chart-3: #7bb99e;
+  --color-chart-4: #f0b653;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 18px 44px rgba(0, 0, 0, 0.23);
+  --shadow-lg: 0 32px 90px rgba(0, 0, 0, 0.36);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--color-text);
+  background: var(--color-app-background);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  color: var(--color-primary-foreground);
+  background: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

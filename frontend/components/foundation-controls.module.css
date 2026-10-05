@@ -1,0 +1,113 @@
+.themeToggle {
+  position: relative;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.themeToggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--color-border-strong);
+  background: var(--color-surface-elevated);
+}
+
+.themeToggle svg {
+  position: absolute;
+  width: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.moonIcon {
+  opacity: 0;
+  transform: rotate(-18deg) scale(0.7);
+}
+
+:global([data-theme="dark"]) .sunIcon {
+  opacity: 0;
+  transform: rotate(18deg) scale(0.7);
+}
+
+:global([data-theme="dark"]) .moonIcon {
+  opacity: 1;
+  transform: rotate(0) scale(1);
+}
+
+.apiStatus {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text-muted);
+  background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.apiStatus > span {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+}
+
+.checking > span {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.ready {
+  color: var(--color-success);
+  border-color: color-mix(in srgb, var(--color-success) 28%, var(--color-border));
+}
+
+.ready > span {
+  background: var(--color-presence-online);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-presence-online) 15%, transparent);
+}
+
+.unavailable {
+  color: var(--color-warning);
+}
+
+.unavailable > span {
+  background: var(--color-warning);
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (max-width: 560px) {
+  .apiStatus {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .checking > span {
+    animation: none;
+  }
+}
