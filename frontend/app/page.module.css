@@ -181,6 +181,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
+  border: 0;
   padding: 0.76rem 1.1rem 0.76rem 1.25rem;
   border-radius: 0.8rem;
   color: var(--color-primary-foreground);
@@ -188,16 +189,23 @@
   box-shadow: 0 10px 28px color-mix(in srgb, var(--color-primary) 22%, transparent);
   font-size: 0.88rem;
   font-weight: 750;
+  font-family: inherit;
+  cursor: pointer;
   transition:
     background-color 160ms ease,
     transform 160ms ease,
     box-shadow 160ms ease;
 }
 
-.primaryAction:hover {
+.primaryAction:hover:not(:disabled) {
   transform: translateY(-2px);
   background: var(--color-primary-hover);
   box-shadow: 0 14px 34px color-mix(in srgb, var(--color-primary) 28%, transparent);
+}
+
+.primaryAction:disabled {
+  cursor: wait;
+  opacity: 0.72;
 }
 
 .primaryAction svg {
@@ -214,6 +222,10 @@
   color: var(--color-text-muted);
   font-size: 0.72rem;
   line-height: 1.5;
+}
+
+.previewNote[role="alert"] {
+  color: var(--color-danger);
 }
 
 .productSignals {

@@ -1,5 +1,6 @@
 import ApiStatus from "@/components/api-status";
 import BrandMark from "@/components/brand-mark";
+import DemoEntryButton from "@/components/demo-entry-button";
 import ThemeToggle from "@/components/theme-toggle";
 import Link from "next/link";
 import styles from "./page.module.css";
@@ -50,7 +51,7 @@ const boardColumns = [
     tasks: [
       {
         title: "Align product principles",
-        meta: "Foundation · Sep 20",
+        meta: "Product · Sep 20",
         priority: "Complete",
         avatars: ["SJ", "NO"],
       },
@@ -69,7 +70,7 @@ const principles = [
     number: "02",
     title: "Momentum you can see",
     description:
-      "Purposeful status, presence, and motion will make collaboration feel immediate and dependable.",
+      "Purposeful status, presence, and motion make collaboration feel immediate and dependable.",
   },
   {
     number: "03",
@@ -78,14 +79,6 @@ const principles = [
       "Practical Scrum structure meets the flexibility teams need to keep useful work moving.",
   },
 ];
-
-function ArrowIcon() {
-  return (
-    <svg viewBox="0 0 20 20" aria-hidden="true">
-      <path d="M4 10h11M11 6l4 4-4 4" />
-    </svg>
-  );
-}
 
 export default function Home() {
   return (
@@ -111,7 +104,7 @@ export default function Home() {
           <div className={styles.heroCopy}>
             <div className={styles.eyebrow}>
               <span className={styles.eyebrowDot} />
-              Foundation preview
+              Real-time teamwork
             </div>
             <h1 id="hero-title">
               Clear plans.
@@ -123,13 +116,10 @@ export default function Home() {
               forward together.
             </p>
             <div className={styles.heroActions}>
-              <a className={styles.primaryAction} href="#preview">
-                Explore the interface
-                <ArrowIcon />
-              </a>
-              <span className={styles.previewNote}>
-                Visual preview · Features coming module by module
-              </span>
+              <DemoEntryButton
+                buttonClassName={styles.primaryAction}
+                noteClassName={styles.previewNote}
+              />
             </div>
             <ul className={styles.productSignals} aria-label="Product qualities">
               <li>Focused planning</li>
@@ -150,7 +140,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className={styles.windowMeta}>
-                  <span className={styles.previewBadge}>Interface concept</span>
+                  <span className={styles.previewBadge}>Product snapshot</span>
                   <div className={styles.avatarGroup} aria-label="Three collaborators">
                     <span>AK</span>
                     <span>MS</span>
@@ -240,7 +230,7 @@ export default function Home() {
           <BrandMark className={styles.brandMark} />
           <span>syncora</span>
         </div>
-        <p>Foundation preview · Built thoughtfully, one module at a time.</p>
+        <p>Real-time planning, delivery, and conversation in one focused workspace.</p>
       </footer>
     </div>
   );

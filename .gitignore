@@ -26,18 +26,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# AI / Agent files
-AGENTS.md
-**/AGENTS.md
-
-CLAUDE.md
-**/CLAUDE.md
-
-**/.claude/
-**/.junie/
-**/.agents/
-**/.codex/
-**/.mcp.json
 
 # Test caches
 **/.phpunit.result.cache

@@ -57,6 +57,34 @@ Profile images use Laravel's `public` filesystem disk and are stored under `stor
 
 Uploads accept JPEG, PNG, and WebP images up to 2 MB. The web server and PHP upload limits must be at least that large.
 
+## Portfolio demo
+
+The landing-page **Explore Demo** action uses a prepared Laravel user and the normal Sanctum stateful session flow. No demo password or credential is exposed to the frontend.
+
+Enable the portfolio demo in `backend/.env`:
+
+```dotenv
+DEMO_ENABLED=true
+```
+
+Provision the idempotent demo data after migrations have run:
+
+```bash
+cd backend
+php artisan demo:provision
+php artisan config:cache
+```
+
+The known demo identifiers live in the demo provisioner rather than deployment configuration. Re-running `demo:provision` reconciles the seeded showcase records without duplication. To remove visitor-created content inside the known demo workspace and restore its seeded project baseline, run:
+
+```bash
+php artisan demo:provision --reset
+```
+
+The shared demo account uses the application's normal features and authorization behavior. In a public portfolio deployment, `demo:provision --reset` may be scheduled at an interval appropriate to traffic. Reset only deletes projects and non-seeded memberships inside the known `syncora-demo` workspace before rebuilding its baseline; it does not reset the database or touch other workspaces.
+
+Set `DEMO_ENABLED=false` and refresh the configuration cache to disable the landing-page login without changing source code.
+
 ## Production configuration
 
 Create environment files on the target platform; never commit them. At minimum:
@@ -69,6 +97,7 @@ Create environment files on the target platform; never commit them. At minimum:
 - Generate unique `REVERB_APP_ID`, `REVERB_APP_KEY`, and secret `REVERB_APP_SECRET`. Configure the public WebSocket host/port/scheme separately from `REVERB_SERVER_HOST` and `REVERB_SERVER_PORT`, and restrict `REVERB_ALLOWED_ORIGINS` to frontend hosts.
 - Set frontend `NEXT_PUBLIC_BACKEND_URL`, `NEXT_PUBLIC_API_URL`, and public Reverb variables at build time. Every `NEXT_PUBLIC_*` value is visible to browsers and must not contain secrets.
 - Configure trusted reverse proxies at the hosting layer so Laravel receives the correct HTTPS host and scheme. Only trust known proxy addresses.
+- Set `DEMO_ENABLED` according to whether the portfolio demo should be publicly accessible.
 
 Deploy the Laravel public web root from `backend/public`, then run:
 

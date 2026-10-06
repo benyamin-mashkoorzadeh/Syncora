@@ -15,6 +15,10 @@ export const authApi = {
     });
   },
 
+  demoLogin() {
+    return apiRequest("/auth/demo", { method: "POST" });
+  },
+
   logout() {
     return apiRequest("/auth/logout", { method: "POST" });
   },

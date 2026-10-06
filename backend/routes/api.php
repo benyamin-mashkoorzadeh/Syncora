@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\Auth\CurrentUserController;
+use App\Http\Controllers\Api\V1\Auth\DemoLoginController;
 use App\Http\Controllers\Api\V1\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Api\V1\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
@@ -33,6 +34,7 @@ Route::prefix('/v1/auth')->name('api.v1.auth.')->group(function (): void {
     Route::middleware('guest.api')->group(function (): void {
         Route::post('/register', RegisterController::class)->name('register');
         Route::post('/login', LoginController::class)->middleware('throttle:login')->name('login');
+        Route::post('/demo', DemoLoginController::class)->middleware('throttle:demo-login')->name('demo');
     });
 
     Route::post('/forgot-password', ForgotPasswordController::class)
